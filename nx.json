@@ -1,0 +1,68 @@
+{
+  "npmScope": "runno",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "activity-types-ui": {
+      "tags": []
+    },
+    "activity-ui": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "auth-api": {
+      "tags": []
+    },
+    "auth-ui": {
+      "tags": []
+    },
+    "leaderboard-ui": {
+      "tags": []
+    },
+    "runno": {
+      "tags": []
+    },
+    "runno-e2e": {
+      "tags": [],
+      "implicitDependencies": ["runno"]
+    },
+    "shared-grid": {
+      "tags": []
+    },
+    "team-settings-ui": {
+      "tags": []
+    },
+    "user-api": {
+      "tags": []
+    }
+  }
+}

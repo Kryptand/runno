@@ -1,0 +1,82 @@
+.header {
+  margin-left: 0;
+  margin-right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.section.left {
+  padding-left: 1.125rem;
+  width: 16rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.section.right {
+  margin-left: 1.875rem;
+  width: 19rem;
+}
+.section {
+  padding: 0.875rem 1.125rem;
+  width: auto;
+  display: flex;
+}
+.middle {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-pack: justify;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 -0.5rem;
+}
+.header {
+  ::ng-deep {
+    nb-menu {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      min-width: 28rem;
+    }
+    nb-menu ul.menu-items {
+      margin: 0;
+      padding: 0;
+    }
+    nb-menu .menu-items {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+    }
+    nb-menu .menu-items {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+    }
+  }
+}
+.content {
+  margin-right: 0;
+}
+.columns {
+  display: flex;
+  flex: 1;
+  -ms-flex: 1 1 auto;
+  flex-direction: row;
+  width: 100%;
+}

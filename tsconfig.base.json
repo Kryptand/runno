@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@runno/activity-types/ui": ["libs/activity-types/ui/src/index.ts"],
+      "@runno/activity/ui": ["libs/activity/ui/src/index.ts"],
+      "@runno/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@runno/auth/api": ["libs/auth/api/src/index.ts"],
+      "@runno/auth/ui": ["libs/auth/ui/src/index.ts"],
+      "@runno/leaderboard/ui": ["libs/leaderboard/ui/src/index.ts"],
+      "@runno/shared/grid": ["libs/shared/grid/src/index.ts"],
+      "@runno/team-settings/ui": ["libs/team-settings/ui/src/index.ts"],
+      "@runno/user/api": ["libs/user/api/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

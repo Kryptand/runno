@@ -1,0 +1,34 @@
+<nb-card>
+  <nb-card-header> Aktivität erstellen </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="form">
+      <input nbInput placeholder="Pick Date" [nbDatepicker]="dateTimePicker" />
+      <nb-datepicker #dateTimePicker></nb-datepicker>
+      <nb-select fullWidth required formControlName="type">
+        <nb-option *ngFor="let type of data" [value]="type.id">{{
+          type.title
+        }}</nb-option>
+      </nb-select>
+      <input
+        required
+        formControlName="distanceInKm"
+        type="number"
+        nbInput
+        fullWidth
+        status="basic"
+        placeholder="Distanz in km"
+      />
+      <input
+        required
+        formControlName="timeInMinutes"
+        type="number"
+        nbInput
+        fullWidth
+        status="basic"
+        placeholder="Zeit in Minuten"
+      />
+      <button nbButton>Abbrechen</button>
+      <button nbButton type="submit">Speichern</button>
+    </form></nb-card-body
+  >
+</nb-card>

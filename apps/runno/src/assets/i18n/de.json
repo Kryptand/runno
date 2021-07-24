@@ -1,0 +1,33 @@
+{
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "callToAction": "Hey! Melde dich bitte mit deinem Benutzernamen an.",
+      "error": "Oh Nein!",
+      "successMessage": "Hurra!",
+      "username": "Benutzername",
+      "usernameRequiredMessage": "Der Benutzername ist erforderlich!",
+      "password": "Passwort",
+      "passwordRequiredMessage": "Das Passwort ist erforderlich!",
+      "loginButton": "Anmelden",
+      "registerButton": "Registrieren",
+      "notCreated": "Noch keinen Account?"
+    },
+    "register": {
+      "title": "Registrieren",
+      "callToAction": "Bitte registriere dich mit einem Benutzernamen und Passwort.",
+      "error": "Oh Nein!",
+      "successMessage": "Hurra!",
+      "username": "Benutzername",
+      "usernameRequiredMessage": "Der Benutzername ist erforderlich!",
+      "password": "Passwort",
+      "repeatPassword": "Passwort wiederholen",
+      "repeatPasswordRequiredMessage": "Bitte das Passwort wiederholen!",
+      "repeatPasswordDoesntMatch": "Die Passwörter stimmen nicht überein",
+      "passwordRequiredMessage": "Das Passwort ist erforderlich!",
+      "loginButton": "Anmelden",
+      "registerButton": "Registrieren",
+      "notCreated": "Du hast schon einen Account?"
+    }
+  }
+}

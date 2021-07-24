@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": []
+  },
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": [
+    "src/**/*.d.ts",
+    "../../libs/auth/ui/src/index.ts",
+    "../../libs/leaderboard/ui/src/index.ts",
+    "../../libs/activity-types/ui/src/index.ts",
+    "../../libs/activity/ui/src/index.ts"
+  ]
+}

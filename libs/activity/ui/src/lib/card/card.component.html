@@ -1,0 +1,17 @@
+<nb-card status="warning">
+  <nb-card-header
+    >{{ activity.type.title }} - am: {{ activity.createdAt }}</nb-card-header
+  >
+  <nb-card-body
+    [style.background-image]="buildBackgroundImageUrl(activity.type.color)"
+    ><div class="distance">Distanz: {{ activity.distanceInKm }} km</div>
+    <div class="points">Punkte: {{ activity.points }}</div>
+    <div class="time">Zeit: {{ activity.timeInMinutes }} Minuten</div>
+    <figure style="max-width: 250px; margin: 1em auto" class="dude"></figure>
+  </nb-card-body>
+  <nb-card-footer
+    ><button nbButton [routerLink]="'createedit/' + activity.id">
+      Editieren</button
+    ><button nbButton>Löschen</button></nb-card-footer
+  >
+</nb-card>
