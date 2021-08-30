@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './user.entity';
 import { UserService } from './user.service';
 import { JwtModule } from '@nestjs/jwt';
+import { TeamSettingsApiModule } from '@runno/team-settings/api';
 
 @Module({
   controllers: [UserController],
@@ -13,6 +14,7 @@ import { JwtModule } from '@nestjs/jwt';
       secret: 'shawandasecret',
       signOptions: { expiresIn: '360s' },
     }),
+    TeamSettingsApiModule,
   ],
   providers: [UserService],
   exports: [UserService],

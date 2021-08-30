@@ -1,6 +1,56 @@
 {
   "version": 1,
   "projects": {
+    "activity-api": {
+      "root": "libs/activity/api",
+      "sourceRoot": "libs/activity/api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/activity/api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/activity/api"
+          ],
+          "options": {
+            "jestConfig": "libs/activity/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "activity-types-api": {
+      "root": "libs/activity-types/api",
+      "sourceRoot": "libs/activity-types/api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/activity-types/api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/activity-types/api"
+          ],
+          "options": {
+            "jestConfig": "libs/activity-types/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "activity-types-ui": {
       "projectType": "library",
       "root": "libs/activity-types/ui",
@@ -9,7 +59,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/activity-types/ui"],
+          "outputs": [
+            "coverage/libs/activity-types/ui"
+          ],
           "options": {
             "jestConfig": "libs/activity-types/ui/jest.config.js",
             "passWithNoTests": true
@@ -34,7 +86,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/activity/ui"],
+          "outputs": [
+            "coverage/libs/activity/ui"
+          ],
           "options": {
             "jestConfig": "libs/activity/ui/jest.config.js",
             "passWithNoTests": true
@@ -58,12 +112,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -88,12 +146,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -109,7 +171,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/api-interfaces/**/*.ts"
+            ]
           }
         }
       }
@@ -122,12 +186,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/auth/api/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/auth/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/auth/api"],
+          "outputs": [
+            "coverage/libs/auth/api"
+          ],
           "options": {
             "jestConfig": "libs/auth/api/jest.config.js",
             "passWithNoTests": true
@@ -143,7 +211,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/auth/ui"],
+          "outputs": [
+            "coverage/libs/auth/ui"
+          ],
           "options": {
             "jestConfig": "libs/auth/ui/jest.config.js",
             "passWithNoTests": true
@@ -160,6 +230,31 @@
         }
       }
     },
+    "leaderboard-api": {
+      "root": "libs/leaderboard/api",
+      "sourceRoot": "libs/leaderboard/api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/leaderboard/api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/leaderboard/api"
+          ],
+          "options": {
+            "jestConfig": "libs/leaderboard/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "leaderboard-ui": {
       "projectType": "library",
       "root": "libs/leaderboard/ui",
@@ -168,7 +263,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/leaderboard/ui"],
+          "outputs": [
+            "coverage/libs/leaderboard/ui"
+          ],
           "options": {
             "jestConfig": "libs/leaderboard/ui/jest.config.js",
             "passWithNoTests": true
@@ -185,6 +282,31 @@
         }
       }
     },
+    "libs\\activity-types-api": {
+      "root": "libs/libs\\activity-types/api",
+      "sourceRoot": "libs/libs/activity-types/api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/libs\\activity-types/api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/libs/activity-types/api"
+          ],
+          "options": {
+            "jestConfig": "libs/libs/activity-types/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "runno": {
       "projectType": "application",
       "root": "apps/runno",
@@ -193,7 +315,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/runno",
             "index": "apps/runno/src/index.html",
@@ -201,7 +325,10 @@
             "polyfills": "apps/runno/src/polyfills.ts",
             "tsConfig": "apps/runno/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/runno/src/favicon.ico", "apps/runno/src/assets"],
+            "assets": [
+              "apps/runno/src/favicon.ico",
+              "apps/runno/src/assets"
+            ],
             "styles": [
               "apps/runno/src/styles.scss",
               "node_modules/@nebular/theme/styles/prebuilt/default.css",
@@ -216,7 +343,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -275,7 +402,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/runno"],
+          "outputs": [
+            "coverage/apps/runno"
+          ],
           "options": {
             "jestConfig": "apps/runno/jest.config.js",
             "passWithNoTests": true
@@ -304,7 +433,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/runno-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/runno-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -317,7 +448,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/grid"],
+          "outputs": [
+            "coverage/libs/shared/grid"
+          ],
           "options": {
             "jestConfig": "libs/shared/grid/jest.config.js",
             "passWithNoTests": true
@@ -334,6 +467,56 @@
         }
       }
     },
+    "team-api": {
+      "root": "libs/team/api",
+      "sourceRoot": "libs/team/api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/team/api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/team/api"
+          ],
+          "options": {
+            "jestConfig": "libs/team/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "team-settings-api": {
+      "root": "libs/team-settings/api",
+      "sourceRoot": "libs/team-settings/api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/team-settings/api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/team-settings/api"
+          ],
+          "options": {
+            "jestConfig": "libs/team-settings/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "team-settings-ui": {
       "projectType": "library",
       "root": "libs/team-settings/ui",
@@ -342,7 +525,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/team-settings/ui"],
+          "outputs": [
+            "coverage/libs/team-settings/ui"
+          ],
           "options": {
             "jestConfig": "libs/team-settings/ui/jest.config.js",
             "passWithNoTests": true
@@ -367,12 +552,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/user/api/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/user/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/user/api"],
+          "outputs": [
+            "coverage/libs/user/api"
+          ],
           "options": {
             "jestConfig": "libs/user/api/jest.config.js",
             "passWithNoTests": true

@@ -80,3 +80,18 @@
   flex-direction: row;
   width: 100%;
 }
+.logo {
+  a {
+    display: flex;
+  }
+}
+#trogologo {
+  height: 50px;
+  width: 70px;
+}
+.brand-text {
+  padding: 1em;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: center;
+}

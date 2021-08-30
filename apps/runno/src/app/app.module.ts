@@ -1,13 +1,27 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule, HttpResponse } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  HttpResponse,
+} from '@angular/common/http';
 
-import { NbLayoutModule, NbMenuModule, NbThemeModule } from '@nebular/theme';
+import {
+  NbButtonModule,
+  NbIconModule,
+  NbLayoutModule,
+  NbMenuModule,
+  NbSidebarModule,
+  NbThemeModule,
+} from '@nebular/theme';
 import {
   getDeepFromObject,
+  NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
+  NbAuthJWTInterceptor,
   NbAuthModule,
+  NbAuthSimpleInterceptor,
   NbAuthSimpleToken,
   NbPasswordAuthStrategy,
   NbPasswordAuthStrategyOptions,
@@ -18,6 +32,9 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AuthGuard } from './auth-guard.service';
 import { PublicRouteShellComponent } from './public-route-shell/public-route-shell.component';
 import { HomeComponent } from './home/home.component';
+import { NbDateFnsDateModule } from '@nebular/date-fns';
+import '@angular/common/locales/global/de';
+import { RedirectInterceptor } from './redirect.interceptor';
 @NgModule({
   declarations: [AppComponent, PublicRouteShellComponent, HomeComponent],
   imports: [
@@ -82,7 +99,7 @@ import { HomeComponent } from './home/home.component';
           password: {
             required: true,
           },
-          email: {
+          username: {
             required: true,
           },
         },
@@ -91,10 +108,29 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     TranslocoRootModule,
     NbEvaIconsModule,
+    NbSidebarModule.forRoot(),
+    NbIconModule,
+    NbButtonModule,
     NbLayoutModule,
     NbMenuModule.forRoot(),
+    NbDateFnsDateModule.forRoot({ format: 'dd.MM.yyyy' }),
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    {
+      provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
+      useValue: function () {
+        return false;
+      },
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NbAuthJWTInterceptor,
+      multi: true,
+    },
+    { provide: LOCALE_ID, useValue: 'de' },
+    { provide: HTTP_INTERCEPTORS, useClass: RedirectInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

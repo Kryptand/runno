@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  width: 40%;
+  min-width: 375px;
+}
+.card input,
+.card nb-select {
+  margin-bottom: 0.5em;
+}
+button {
+  margin-left: 1em;
+  margin-top: 2em;
+}
+.fleft {
+  display: flex;
+  justify-content: end;
+}

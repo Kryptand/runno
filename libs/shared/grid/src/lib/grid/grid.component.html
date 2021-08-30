@@ -2,12 +2,15 @@
   <ag-grid-angular
     class="ag-theme-material"
     domLayout="autoHeight"
+    [pagination]="paging"
+    paginationPageSize="10"
     [gridOptions]="instancePtr"
     [columnDefs]="columnDefs"
     (gridReady)="onGridReady()"
     (cellValueChanged)="onCellValueChanged($event)"
     [frameworkComponents]="frameworkComponents"
     [rowData]="data"
+    [localeTextFunc]="locale"
   >
   </ag-grid-angular>
 </ng-container>

@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "activity-api": {
+      "tags": []
+    },
     "activity-types-ui": {
       "tags": []
     },
@@ -45,6 +48,9 @@
     "auth-ui": {
       "tags": []
     },
+    "leaderboard-api": {
+      "tags": []
+    },
     "leaderboard-ui": {
       "tags": []
     },
@@ -56,6 +62,12 @@
       "implicitDependencies": ["runno"]
     },
     "shared-grid": {
+      "tags": []
+    },
+    "team-api": {
+      "tags": []
+    },
+    "team-settings-api": {
       "tags": []
     },
     "team-settings-ui": {

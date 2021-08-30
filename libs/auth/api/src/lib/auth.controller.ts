@@ -5,7 +5,6 @@ export class AuthController {
   constructor(private authService: AuthService) {}
   @Post('login')
   async login(@Request() req: any) {
-    console.debug(req);
-    return this.authService.login(req.body);
+    return this.authService.login(req.body.username, req.body.password);
   }
 }

@@ -1,3 +1,12 @@
 :host {
   display: block;
 }
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+runno-card,
+.add-card {
+  padding: 1em;
+}

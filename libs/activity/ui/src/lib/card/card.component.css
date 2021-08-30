@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+.points {
+  line-height: 1;
+  font-size: 50px;
+}

@@ -18,7 +18,7 @@ export interface Activity {
   type: ActivityType;
   distanceInKm: number;
   timeInMinutes: number;
-  points: number;
+  calculatedPoints: number;
   editedAt: Date;
   createdAt: Date;
 }

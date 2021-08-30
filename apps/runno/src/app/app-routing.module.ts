@@ -8,13 +8,14 @@ export const RUNNO_ROUTES: Routes = [
     path: 'auth',
     loadChildren: () => import('@runno/auth/ui').then((m) => m.AuthModule),
   },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '',
     component: PublicRouteShellComponent,
     canActivate: [AuthGuard],
     children: [
       {
-        path: '',
+        path: 'home',
         loadChildren: () =>
           import('@runno/leaderboard/ui').then((m) => m.LeaderboardUiModule),
       },

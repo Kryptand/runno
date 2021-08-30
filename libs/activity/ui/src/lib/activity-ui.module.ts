@@ -14,6 +14,7 @@ import {
   NbSelectModule,
 } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NbDateFnsDateModule } from '@nebular/date-fns';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NbInputModule,
     ReactiveFormsModule,
     NbSelectModule,
+    NbDateFnsDateModule.forChild({ format: 'dd.MM.yyyy' }),
     NbDatepickerModule.forRoot(),
   ],
   declarations: [CardComponent, CreateEditFormComponent, OverviewComponent],

@@ -1,11 +1,22 @@
-<nb-card>
+<nb-card *ngIf="types$ | async as types" class="card">
   <nb-card-header> Aktivität erstellen </nb-card-header>
   <nb-card-body>
     <form [formGroup]="form">
-      <input nbInput placeholder="Pick Date" [nbDatepicker]="dateTimePicker" />
-      <nb-datepicker #dateTimePicker></nb-datepicker>
-      <nb-select fullWidth required formControlName="type">
-        <nb-option *ngFor="let type of data" [value]="type.id">{{
+      <input
+        nbInput
+        fullWidth
+        required
+        formControlName="createdAt"
+        placeholder="Datum auswählen"
+        [nbDatepicker]="dateTimePicker"
+      />
+      <nb-datepicker format="dd.MM.yyyy" #dateTimePicker></nb-datepicker>
+      <nb-select
+        placeholder="Sportart auswählen"
+        fullWidth
+        formControlName="type"
+      >
+        <nb-option *ngFor="let type of types" [value]="type.id">{{
           type.title
         }}</nb-option>
       </nb-select>
@@ -27,8 +38,17 @@
         status="basic"
         placeholder="Zeit in Minuten"
       />
-      <button nbButton>Abbrechen</button>
-      <button nbButton type="submit">Speichern</button>
+      <div class="fleft">
+        <button nbButton>Abbrechen</button>
+        <button
+          nbButton
+          type="submit"
+          [disabled]="form.invalid"
+          (click)="saveActivity(form.value, types)"
+        >
+          Speichern
+        </button>
+      </div>
     </form></nb-card-body
   >
 </nb-card>

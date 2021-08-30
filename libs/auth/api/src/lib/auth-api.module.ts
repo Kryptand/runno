@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { UserApiModule } from '@runno/user/api';
 import { JwtModule } from '@nestjs/jwt';
 import { LocalStrategy } from './strategies/local.strategy';
@@ -9,11 +9,11 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
   imports: [
-    UserApiModule,
+    forwardRef(() => UserApiModule),
     PassportModule,
     JwtModule.register({
       secret: 'shawandasecret',
-      signOptions: { expiresIn: '360s' },
+      signOptions: { expiresIn: '3600s' },
     }),
   ],
   controllers: [AuthController],

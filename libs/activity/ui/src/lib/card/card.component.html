@@ -1,17 +1,25 @@
-<nb-card status="warning">
-  <nb-card-header
-    >{{ activity.type.title }} - am: {{ activity.createdAt }}</nb-card-header
+<nb-card>
+  <nb-card-header [style]="'background-color:' + activity.type.color + ';'"
+    >{{ activity.type.title }} - am:
+    {{ activity.createdAt | date: 'dd.MM.YYYY' }}</nb-card-header
   >
   <nb-card-body
     [style.background-image]="buildBackgroundImageUrl(activity.type.color)"
     ><div class="distance">Distanz: {{ activity.distanceInKm }} km</div>
-    <div class="points">Punkte: {{ activity.points }}</div>
+    <div>
+      <span class="points">{{ activity.calculatedPoints }}</span>
+      <span class="points-text"> Punkte</span>
+    </div>
     <div class="time">Zeit: {{ activity.timeInMinutes }} Minuten</div>
     <figure style="max-width: 250px; margin: 1em auto" class="dude"></figure>
   </nb-card-body>
-  <nb-card-footer
-    ><button nbButton [routerLink]="'createedit/' + activity.id">
-      Editieren</button
-    ><button nbButton>Löschen</button></nb-card-footer
+  <nb-card-footer>
+    <!--    <button nbButton [routerLink]="'createedit/' + activity.id">-->
+    <!--      Editieren</button-->
+    <!--    >-->
+    <!--    -->
+    <button nbButton (click)="deleteActivity(activity.id)">
+      Löschen
+    </button></nb-card-footer
   >
 </nb-card>

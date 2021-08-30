@@ -1,0 +1,20 @@
+version: '3.6'
+
+services:
+  bannydb:
+    container_name: bannypersist
+    image: mariadb:10.6.2
+    networks:
+      - banny
+    restart: always
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: ${NANNY_DB_ROOT_PW}
+      MYSQL_DATABASE: ${NANNY_DB_NAME}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - '${NANNY_MYSQL_PORT}:3306'
+    volumes:
+      - '${NANNY_DATA_MYSQL_PATH}:/var/lib/mysql'
+networks:
+  banny:

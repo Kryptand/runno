@@ -29,5 +29,16 @@
       "registerButton": "Registrieren",
       "notCreated": "Du hast schon einen Account?"
     }
+  },
+  "grid": {
+    "loadingOoo": "Laden...",
+    "page": "Seite",
+    "to": "bis",
+    "of": "von",
+    "firstPage": "Erste Seite",
+    "previousPage": "Vorherige Seite",
+    "nextPage": "Nächste Seite",
+    "lastPage": "Letzte Seite",
+    "noRowsToShow": "Keine Daten"
   }
 }

@@ -1,6 +1,4 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { UserEntity } from './user.entity';
-import { Crud, CrudController } from '@nestjsx/crud';
 import { UserService } from './user.service';
 import { CreateUserDto } from './create-user.dto';
 

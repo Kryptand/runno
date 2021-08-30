@@ -27,24 +27,24 @@
 
   <form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
     <div class="form-control-group">
-      <label class="label" for="input-email">{{
+      <label class="label" for="input-username">{{
         t('auth.login.username')
       }}</label>
       <input
         nbInput
         fullWidth
-        [(ngModel)]="user.email"
-        #email="ngModel"
-        name="email"
-        id="input-email"
+        [(ngModel)]="user.username"
+        #username="ngModel"
+        name="username"
+        id="input-username"
         [placeholder]="t('auth.login.username')"
         autofocus
-        [status]="email.dirty ? (email.invalid ? 'danger' : 'success') : ''"
+        [status]="username.dirty ? (username.invalid ? 'danger' : 'success') : ''"
         required
-        [attr.aria-invalid]="email.invalid && email.touched ? true : null"
+        [attr.aria-invalid]="username.invalid && username.touched ? true : null"
       />
-      <ng-container *ngIf="email.invalid && email.touched">
-        <p class="error-message" *ngIf="email.errors?.required">
+      <ng-container *ngIf="username.invalid && username.touched">
+        <p class="error-message" *ngIf="username.errors?.required">
           {{ t('auth.login.usernameRequiredMessage') }}
         </p>
       </ng-container>

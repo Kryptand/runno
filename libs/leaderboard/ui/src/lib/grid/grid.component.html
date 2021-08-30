@@ -1,9 +1,32 @@
-<nb-card>Die wöchentliche Challenge ist: Bla</nb-card>
-<nb-card>Du bist auf Platz 2. Dir fehlen noch 2 Punkte auf Platz 1</nb-card>
-<nb-card size="small">Das beste Team ist derzeit Annetts Rote Armee</nb-card>
-<nb-card
-  ><nb-card-header>Rangliste</nb-card-header
+<nb-card *ngIf="user$ | async as user"
   ><nb-card-body>
-    <runno-grid [data]="data" [columnDefs]="columnDefs">
+    <h4>Willkommen {{ user.username }}</h4>
+    <ng-container *ngIf="currentPlace$ | async as place">
+      <p>Du bist auf Platz {{ place }}</p>
+    </ng-container>
+    <ng-container *ngIf="currentTeamPlace$ | async as teamPlace">
+      <p>
+        Dein Team <b>{{ user.team }}</b> ist auf Platz {{ teamPlace }}
+      </p></ng-container
+    >
+  </nb-card-body></nb-card
+>
+<h3>Rangliste</h3>
+<nb-card
+  ><nb-card-body>
+    <runno-grid
+      [data]="currentLeaderboard$ | async"
+      [columnDefs]="currentLeaderBoardColDef"
+      [paging]="true"
+    >
+    </runno-grid></nb-card-body
+></nb-card>
+<h3>Rangliste Teams</h3>
+<nb-card
+  ><nb-card-body>
+    <runno-grid
+      [data]="currentTeamLeaderboard$ | async"
+      [columnDefs]="currentTeamLeaderBoardColDef"
+    >
     </runno-grid></nb-card-body
 ></nb-card>

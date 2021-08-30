@@ -10,5 +10,11 @@ module.exports = {
     '<rootDir>/libs/user/api',
     '<rootDir>/libs/shared/grid',
     '<rootDir>/libs/leaderboard/ui',
+    '<rootDir>/libs/libs\\activity-types/api',
+    '<rootDir>/libs/activity-types/api',
+    '<rootDir>/libs/activity/api',
+    '<rootDir>/libs/team/api',
+    '<rootDir>/libs/team-settings/api',
+    '<rootDir>/libs/leaderboard/api',
   ],
 };

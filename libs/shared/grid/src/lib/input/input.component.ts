@@ -35,7 +35,9 @@ export class InputComponent implements ICellEditorAngularComp {
 
   getValue() {
     return this.inputControl.valid
-      ? this.inputControl.value
+      ? this.inputType === 'number'
+        ? parseInt(this.inputControl.value)
+        : this.inputControl.value
       : this.previousValue;
   }
 

@@ -1,6 +1,10 @@
+<h3>Sportarten</h3>
 <nb-card
-  ><nb-card-header>Sportarten</nb-card-header
   ><nb-card-body>
-    <runno-grid [data]="data" [columnDefs]="columnDefs">
+    <runno-grid
+      (editEnd)="end($event)"
+      [data]="types$ | async"
+      [columnDefs]="columnDefs"
+    >
     </runno-grid></nb-card-body
 ></nb-card>

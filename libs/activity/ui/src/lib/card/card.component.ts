@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Activity } from '@runno/api-interfaces';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { ActivityService } from '../activity.service';
+import { take } from 'rxjs/operators';
 @Component({
   selector: 'runno-card',
   templateUrl: './card.component.html',
@@ -9,7 +10,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class CardComponent {
   @Input() activity!: Activity;
-  constructor(private sanitizer: DomSanitizer) {}
+  @Output() delete: EventEmitter<string> = new EventEmitter<string>();
+  constructor(
+    private sanitizer: DomSanitizer,
+    private service: ActivityService
+  ) {}
   buildBackgroundImageUrl(color: string) {
     const str = `url('data:image/svg+xml;utf8, <svg  version="1.1"  id="Layer_1"  xmlns="http://www.w3.org/2000/svg"   xmlns:xlink="http://www.w3.org/1999/xlink"     x="0px"  y="0px"  width="100%"  height="100%"  viewBox="0 0 753.289 1670.659"
      style="enable-background: new 0 0 753.289 1670.659"  xml:space="preserve"  >
@@ -18,5 +23,12 @@ export class CardComponent {
        </g>
         </svg>');`;
     return str;
+  }
+
+  deleteActivity(id: string) {
+    const answer = window.confirm('Wirklich löschen?');
+    if (answer) {
+      this.delete.emit(id);
+    }
   }
 }

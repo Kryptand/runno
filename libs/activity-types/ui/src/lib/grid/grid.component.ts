@@ -1,42 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { ActivityTypesService } from '../activity-types.service';
+import { Observable, of } from 'rxjs';
+import { ActivityType } from '@runno/api-interfaces';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'runno-activity-types-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
 })
-export class GridComponent {
-  data = [
-    {
-      id: 0,
-      title: 'Joggen',
-      color: '#000000',
-      maxDistancePerDayInKm: 15,
-      points: 3,
-    },
-    {
-      id: 1,
-      title: 'Wandern',
-      color: '#ffffff',
-      maxDistancePerDayInKm: 30,
-      points: 2,
-    },
-    {
-      id: 2,
-      title: 'Radfahren',
-      color: '#ffffff',
-      maxDistancePerDayInKm: 50,
-      points: 1.5,
-    },
-    {
-      id: 3,
-      title: 'E-Bike fahren',
-      color: '#ffffff',
-      maxDistancePerDayInKm: 50,
-      points: 1,
-    },
-  ];
+export class GridComponent implements OnInit {
+  public types$!: Observable<any[]>;
+  constructor(private activityTypes: ActivityTypesService) {
+    this.activityTypes.load();
+  }
+  ngOnInit() {
+    this.types$ = this.activityTypes.activityTypes$;
+  }
   columnDefs = [
     {
       headerName: 'Sportart',
@@ -69,4 +50,8 @@ export class GridComponent {
       editable: true,
     },
   ];
+
+  end(values: any) {
+    this.activityTypes.update(values).pipe(take(1)).subscribe();
+  }
 }

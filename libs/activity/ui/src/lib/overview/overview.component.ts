@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Activity } from '@runno/api-interfaces';
+import { ActivityService } from '../activity.service';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'runno-overview',
@@ -7,134 +10,22 @@ import { Activity } from '@runno/api-interfaces';
   styleUrls: ['./overview.component.css'],
 })
 export class OverviewComponent {
-  activities: Activity[] = [
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#000000',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#ffffff',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#000000',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#000000',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#000000',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#000000',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#000000',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    {
-      id: 'a',
-      userId: 'b',
-      type: {
-        id: '0',
-        title: 'Joggen',
-        color: '#000000',
-        maxDistancePerDayInKm: 15,
-        points: 3,
-      },
-      distanceInKm: 10,
-      timeInMinutes: 30,
-      points: 12,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-  ];
+  public activities$!: Observable<any>;
+  constructor(
+    private activity: ActivityService,
+    private cd: ChangeDetectorRef
+  ) {}
+  ngOnInit() {
+    this.activities$ = this.activity.listActivities();
+  }
+
+  deleteActivity(id: string) {
+    this.activity
+      .deleteActivity(id)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.activities$ = this.activity.listActivities();
+        this.cd.markForCheck();
+      });
+  }
 }

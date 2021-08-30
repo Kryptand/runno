@@ -1,8 +1,16 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { InputComponent } from '../input/input.component';
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { ColDef } from 'ag-grid-community';
+import { translate } from '@ngneat/transloco';
 
 @Component({
   selector: 'runno-grid',
@@ -12,24 +20,23 @@ import { ColDef } from 'ag-grid-community';
 export class GridComponent implements OnInit, OnDestroy {
   @Input() data: any[] = [];
   @Input() columnDefs: ColDef[] = [];
+  @Input() paging = false;
+  @Output() editEnd: EventEmitter<any> = new EventEmitter<any>();
   rowDataTracker = {} as any;
   private windowResizeSub: Subscription = new Subscription();
   public frameworkComponents = {
     defaultInputEditor: InputComponent,
   };
   instancePtr = {} as any;
-
+  locale = (key: any, defaultValue: any) => {
+    return translate('grid.' + key);
+  };
   public onGridReady() {
     this.instancePtr.api.sizeColumnsToFit();
   }
   public onCellValueChanged(params: any) {
     if (params.oldValue.toString() !== params.newValue.toString()) {
-      this.storeEdit(
-        params.data.id,
-        params.colDef.field,
-        params.oldValue,
-        params.newValue
-      );
+      this.editEnd.emit(params.data);
     }
     this.instancePtr.api.refreshCells();
   }
@@ -43,6 +50,7 @@ export class GridComponent implements OnInit, OnDestroy {
       this.rowDataTracker[rowId] = {};
     }
     this.rowDataTracker[rowId][columnId] = [oldValue, newValue];
+    this.editEnd.emit(this.rowDataTracker);
   }
 
   confirmEditState() {

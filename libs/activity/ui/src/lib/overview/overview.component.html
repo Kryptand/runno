@@ -1,20 +1,18 @@
-Meine Aktivitäten bitches
-
-<!--<nb-list nbInfiniteList [threshold]="500" (bottomThreshold)="loadNext()">-->
-<!--  <nb-list-item *ngFor="let item of items"></nb-list-item>-->
-<!--</nb-list>-->
-
-<nb-list
-  ><nb-list-item>
-    <nb-card>
-      <nb-card-body
-        ><a nbButton routerLink="createedit">
-          + Neue Aktivität anlegen
-        </a></nb-card-body
-      >
-    </nb-card>
-  </nb-list-item>
-  <nb-list-item *ngFor="let activity of activities">
-    <runno-card [activity]="activity"></runno-card
-  ></nb-list-item>
-</nb-list>
+<h3>Meine Aktivitäten</h3>
+<div class="add-card">
+  <nb-card>
+    <nb-card-body
+      ><a nbButton routerLink="createedit">
+        + Neue Aktivität anlegen
+      </a></nb-card-body
+    >
+  </nb-card>
+</div>
+<div class="flex flex-row">
+  <ng-container *ngFor="let activity of activities$ | async">
+    <runno-card
+      [activity]="activity"
+      (delete)="deleteActivity($event)"
+    ></runno-card>
+  </ng-container>
+</div>
