@@ -21,7 +21,6 @@ import {
   NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
   NbAuthJWTInterceptor,
   NbAuthModule,
-  NbAuthSimpleInterceptor,
   NbAuthSimpleToken,
   NbPasswordAuthStrategy,
   NbPasswordAuthStrategyOptions,
@@ -47,18 +46,18 @@ import { RedirectInterceptor } from './redirect.interceptor';
           name: 'email',
           baseEndpoint: '',
           login: {
-            endpoint: '/api/auth/login',
+            endpoint: 'http://localhost:3333/api/auth/login',
             requireValidToken: true,
             redirect: {
-              success: '/',
+              success: '/home',
               failure: null,
             },
           },
           register: {
-            endpoint: '/api/user',
+            endpoint: 'http://localhost:3333/api/user',
             requireValidToken: true,
             redirect: {
-              success: '/',
+              success: '/home',
               failure: null,
             },
           },

@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
 export class ActivityService {
   constructor(private http: HttpClient) {}
   create(activity: ActivityType) {
-    return this.http.post('/api/activity', activity);
+    return this.http.post('http://localhost:3333/api/activity', activity);
   }
   listActivities() {
-    return this.http.get('/api/activity');
+    return this.http.get('http://localhost:3333/api/activity');
   }
   deleteActivity(id: string) {
-    return this.http.delete('/api/activity/' + id);
+    return this.http.delete('http://localhost:3333/api/activity/' + id);
   }
 }
