@@ -19,7 +19,7 @@ export class ActivityTypesService {
     }
     this.loadingSub.next(true);
     this.activityTypes$ = this.http
-      .get<ActivityType[]>('http://localhost:3333/api/activity-type')
+      .get<ActivityType[]>('http://rr-laufchallenge:3333/api/activity-type')
       .pipe(
         tap(() => {
           this.loadingSub.next(false);
@@ -28,9 +28,9 @@ export class ActivityTypesService {
       );
   }
   update(activityType: Partial<ActivityType>) {
-    return this.http.put('http://localhost:3333/api/activity-type/' + activityType.id, activityType);
+    return this.http.put('http://rr-laufchallenge:3333/api/activity-type/' + activityType.id, activityType);
   }
   create(activityType: Partial<ActivityType>) {
-    return this.http.post('http://localhost:3333/api/activity-type', activityType);
+    return this.http.post('http://rr-laufchallenge:3333/api/activity-type', activityType);
   }
 }

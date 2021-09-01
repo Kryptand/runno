@@ -30,11 +30,11 @@ export interface LeaderboardEntry {
 export class LeaderboardService {
   constructor(private http: HttpClient) {}
   getCurrentLeaderboard(): Observable<LeaderboardEntry[]> {
-    return this.http.get<LeaderboardEntry[]>('http://localhost:3333/api/leaderboard');
+    return this.http.get<LeaderboardEntry[]>('http://rr-laufchallenge:3333/api/leaderboard');
   }
   getTeamsLeaderboard(): Observable<
     { team: string; calculatedPoints: number }[]
   > {
-    return this.http.get<any[]>('http://localhost:3333/api/leaderboard/teams');
+    return this.http.get<any[]>('http://rr-laufchallenge:3333/api/leaderboard/teams');
   }
 }

@@ -46,7 +46,7 @@ import { RedirectInterceptor } from './redirect.interceptor';
           name: 'email',
           baseEndpoint: '',
           login: {
-            endpoint: 'http://localhost:3333/api/auth/login',
+            endpoint: 'http://rr-laufchallenge:3333/api/auth/login',
             requireValidToken: true,
             redirect: {
               success: '/home',
@@ -54,7 +54,7 @@ import { RedirectInterceptor } from './redirect.interceptor';
             },
           },
           register: {
-            endpoint: 'http://localhost:3333/api/user',
+            endpoint: 'http://rr-laufchallenge:3333/api/user',
             requireValidToken: true,
             redirect: {
               success: '/home',
