@@ -22,7 +22,7 @@ import { LeaderboardApiModule } from '@runno/leaderboard/api';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'wnUNWuynPa038A',
+      password: 'rqrwqwr',
       database: 'laufchallenge',
       keepConnectionAlive: true,
       synchronize: true,
